@@ -1,10 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.defaultHandler = exports.newUrlHandler = exports.notFoundHandler = exports.redirectionHandler = void 0;
-// export const isHttps = (req: IncomingMessage) :boolean => {
-//return req.socket instanceof TLSSocket && req.socket.encrypted;
-// }
 const redirectionHandler = (req, resp) => {
+    console.log("redirect");
     resp.writeHead(302, { "Location": "https://localhost:5500" });
     resp.end();
 };

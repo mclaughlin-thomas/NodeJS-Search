@@ -1,11 +1,8 @@
 import { IncomingMessage, ServerResponse } from "http";
-//import { TLSSocket } from "tls";
-//import { URL } from "url";
 import { Request, Response } from "express";
-// export const isHttps = (req: IncomingMessage) :boolean => {
-//return req.socket instanceof TLSSocket && req.socket.encrypted;
-// }
+
 export const redirectionHandler= (req: IncomingMessage, resp: ServerResponse) => {
+    console.log("redirect");
     resp.writeHead(302, {"Location": "https://localhost:5500"});
     resp.end();
 }

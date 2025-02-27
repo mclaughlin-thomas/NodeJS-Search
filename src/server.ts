@@ -1,6 +1,6 @@
 import { createServer } from "http";
 import { redirectionHandler, newUrlHandler, defaultHandler, notFoundHandler } from "./handler";
-import { createServer as createHttpsServer } from"https";
+import { createServer as createHttpsServer } from "https";
 import { readFileSync } from "fs";
 import express, { Express } from "express";
 
