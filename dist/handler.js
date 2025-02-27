@@ -1,7 +1,28 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.handler = void 0;
-const handler = (req, res) => {
-    res.end("Hello World");
+exports.defaultHandler = exports.newUrlHandler = exports.notFoundHandler = exports.redirectionHandler = void 0;
+// export const isHttps = (req: IncomingMessage) :boolean => {
+//return req.socket instanceof TLSSocket && req.socket.encrypted;
+// }
+const redirectionHandler = (req, resp) => {
+    resp.writeHead(302, { "Location": "https://localhost:5500" });
+    resp.end();
 };
-exports.handler = handler;
+exports.redirectionHandler = redirectionHandler;
+const notFoundHandler = (req, resp) => {
+    resp.sendStatus(404);
+};
+exports.notFoundHandler = notFoundHandler;
+const newUrlHandler = (req, resp) => {
+    resp.send("Hello, New URL");
+};
+exports.newUrlHandler = newUrlHandler;
+const defaultHandler = (req, resp) => {
+    if (req.query.keyword) {
+        resp.send(`Hello, ${req.query.keyword}`);
+    }
+    else {
+        resp.send(`Hello, ${req.protocol.toUpperCase()}`);
+    }
+};
+exports.defaultHandler = defaultHandler;
