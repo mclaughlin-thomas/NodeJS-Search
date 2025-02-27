@@ -19,8 +19,9 @@ const httpsConfig = {
 
 const expressApp: Express = express();
 expressApp.get("/favicon.ico", notFoundHandler);
-expressApp.get("/newurl", newUrlHandler);
+expressApp.get("/newurl/:message?", newUrlHandler);
 expressApp.get("*", defaultHandler);
+
 const httpsServer = createHttpsServer(httpsConfig, expressApp);
 httpsServer.listen(https_port,() => 
     console.log(`HTTPS Server listening on port ${https_port}`)
