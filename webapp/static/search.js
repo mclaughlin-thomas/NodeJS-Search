@@ -2038,15 +2038,15 @@ var hints = ["-=",
     
     
     function validate(thisform){
-       console.log("validating!");
-       cleanup();
-    
-       if ((thisform.Key1.value == "") && (thisform.Key2.value == "") && (thisform.Key3.value == ""))
-          {
-          alert("No keyword or phrase was entered.  Please try again.");
-          return false;
-          }
-       else
-         return true;
+      console.log("validating!");
+      cleanup();
+
+      if ((thisform.Key1.value == ""))
+         {
+         alert("No keyword or phrase was entered.  Please try again.");
+         return false;
+         }
+      else
+      return true;
     }
     
