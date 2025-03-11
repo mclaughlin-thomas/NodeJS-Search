@@ -7,6 +7,7 @@ const http_1 = require("http");
 const express_1 = __importDefault(require("express"));
 const handler_1 = require("./handler");
 const javascriptHandler_1 = require("./javascriptHandler");
+const keywordHandler_1 = require("./keywordHandler");
 const port = 3001;
 const expressApp = (0, express_1.default)();
 expressApp.get("/favicon.ico", (req, resp) => {
@@ -14,6 +15,7 @@ expressApp.get("/favicon.ico", (req, resp) => {
     resp.end();
 });
 expressApp.get("/search.js", javascriptHandler_1.javascriptHandler);
+expressApp.post("/keyword", keywordHandler_1.keywordHandler);
 expressApp.get("*", handler_1.basicHandler);
 const server = (0, http_1.createServer)(expressApp);
 server.listen(port, () => console.log(`HTTP Server listening on port ${port}`));

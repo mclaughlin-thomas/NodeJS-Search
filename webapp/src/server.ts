@@ -2,6 +2,7 @@ import { createServer } from "http";
 import express, { Express } from "express";
 import { basicHandler } from "./handler";
 import { javascriptHandler } from "./javascriptHandler";
+import { keywordHandler } from "./keywordHandler";
 
 const port = 3001;
 const expressApp: Express = express();
@@ -11,6 +12,8 @@ expressApp.get("/favicon.ico", (req, resp) => {
     resp.end();
 });
 expressApp.get("/search.js", javascriptHandler);
+expressApp.post("/keyword", keywordHandler);
+
 expressApp.get("*", basicHandler);
 
 const server = createServer(expressApp);

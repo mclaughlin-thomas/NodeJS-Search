@@ -2037,9 +2037,8 @@ var hints = ["-=",
        }
     
     
-    function validate(thisform)
-       {
-        console.log("validating!");
+    function validate(thisform){
+       console.log("validating!");
        cleanup();
     
        if ((thisform.Key1.value == "") && (thisform.Key2.value == "") && (thisform.Key3.value == ""))
@@ -2049,5 +2048,5 @@ var hints = ["-=",
           }
        else
          return true;
-       }
+    }
     
