@@ -2041,7 +2041,7 @@ var hints = ["-=",
       console.log("validating!");
       cleanup();
 
-      if ((thisform.searchkey.value == ""))
+      if ((thisform.Key1.value == ""))
          {
          alert("No keyword or phrase was entered.  Please try again.");
          return false;
