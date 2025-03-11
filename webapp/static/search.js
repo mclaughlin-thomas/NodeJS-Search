@@ -2039,6 +2039,7 @@ var hints = ["-=",
     
     function validate(thisform)
        {
+        console.log("validating!");
        cleanup();
     
        if ((thisform.Key1.value == "") && (thisform.Key2.value == "") && (thisform.Key3.value == ""))
