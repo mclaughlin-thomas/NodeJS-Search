@@ -15,7 +15,7 @@ expressApp.get("/favicon.ico", (req, resp) => {
     resp.end();
 });
 expressApp.get("/search.js", javascriptHandler_1.javascriptHandler);
-expressApp.post("/keyword", keywordHandler_1.keywordHandler);
+expressApp.post("/keyword/:message?", keywordHandler_1.keywordHandler);
 expressApp.get("*", handler_1.basicHandler);
 const server = (0, http_1.createServer)(expressApp);
 server.listen(port, () => console.log(`HTTP Server listening on port ${port}`));
