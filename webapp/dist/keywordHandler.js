@@ -18,12 +18,20 @@ const keywordHandler = (req, resp) => {
     // process each entry in the keyword file
     function processEntry(entry, searchTerm) {
         const [link, keywords] = entry.split('|');
-        return matchSearchTerm(keywords, searchTerm) ? generateResultLink(link) : null;
+        const isMatch = matchSearchTerm(keywords, searchTerm); // Check if the search term matches the keywords
+        // if there is a match, we generate the result link. Otherwise, we return null
+        if (isMatch) {
+            return generateResultLink(link);
+        }
+        else {
+            return null;
+        }
+        //return matchSearchTerm(keywords, searchTerm) ? generateResultLink(link) : null;
     }
     // process entries and filter out null/empty values
     const results = keywordFile
-        .map(entry => processEntry(entry, msg))
-        .filter(Boolean); // Remove null entries
+        .map(entry => processEntry(entry, msg)) // we basically iterate through the keywordFile array with the .map
+        .filter(Boolean); // this just removes the null entries
     // Respond with search results
     resp.writeHead(200, { "Content-Type": "text/html" });
     if (results.length) {

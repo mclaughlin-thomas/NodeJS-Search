@@ -30,7 +30,7 @@ export const keywordHandler = (req: Request, resp: Response) => {
         if (isMatch) {
             return generateResultLink(link);
         } else {
-            return null;
+            return null; // makes entire element null
         }
         //return matchSearchTerm(keywords, searchTerm) ? generateResultLink(link) : null;
     }
