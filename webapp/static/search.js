@@ -1971,32 +1971,34 @@ var hints = ["-=",
     "yap"];
     
     
-    function suggest(str, InputboxIdNum)
-       {
-       var currentHint, temp, count;
-       var domSuggestions = document.getElementById("suggestions");
-    
-       cleanup();
-    
-       if (str.length > 2)
-          {
-          count = 0;
-          domSuggestions.innerHTML = domSuggestions.innerHTML + '<strong>Clickable Suggestions<strong><br /><br />';
-          for (k = 0; k < hints.length; k++)
-             {
-             currentHint = hints[k];
-    
-             if (isPrefix(str, currentHint))
-                {
-                temp = '<a onclick="useSuggestion(' + k + ', ' + InputboxIdNum + ')" >' + currentHint + '</a><br />';
-                domSuggestions.innerHTML = domSuggestions.innerHTML + temp;
-                count++;
-                }
-             }
-          if (count > 0)
-             domSuggestions.style.visibility = "visible";
-          }
-       }
+    function suggest(str, InputboxIdNum){
+      
+      console.log("suggest is working");
+
+      var currentHint, temp, count;
+      var domSuggestions = document.getElementById("suggestions");
+
+      cleanup();
+
+      if (str.length > 2)
+         {
+         count = 0;
+         domSuggestions.innerHTML = domSuggestions.innerHTML + '<strong>Clickable Suggestions<strong><br /><br />';
+         for (k = 0; k < hints.length; k++)
+            {
+            currentHint = hints[k];
+
+            if (isPrefix(str, currentHint))
+               {
+               temp = '<a onclick="useSuggestion(' + k + ', ' + InputboxIdNum + ')" >' + currentHint + '</a><br />';
+               domSuggestions.innerHTML = domSuggestions.innerHTML + temp;
+               count++;
+               }
+            }
+         if (count > 0)
+            domSuggestions.style.visibility = "visible";
+         }
+   }
     
     
     function isPrefix(s, hint)
@@ -2037,16 +2039,15 @@ var hints = ["-=",
        }
     
     
-    function validate(thisform){
+   function validate(thisform){
       console.log("validating!");
       cleanup();
 
-      if ((thisform.Key1.value == ""))
-         {
+      if ((thisform.Key1.value == "")){
          alert("No keyword or phrase was entered.  Please try again.");
          return false;
-         }
+      }
       else
       return true;
-    }
+   }
     
