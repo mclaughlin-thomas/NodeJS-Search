@@ -7,14 +7,22 @@ const keywordHandler = (req, resp) => {
     const msg = req.query.Key1;
     const keywordFile = (0, fs_1.readFileSync)("static/keywordfile3", "utf-8").trim().split("\n");
     // Search logic
-    const results = keywordFile
-        .map(entry => {
+    // check if the keywords contain the search term
+    function matchSearchTerm(keywords, searchTerm) {
+        return keywords.toLowerCase().includes(searchTerm.toLowerCase());
+    }
+    // generate the result link
+    function generateResultLink(link) {
+        return `<a href="${link}" target="_blank">${link}</a><br />`;
+    }
+    // process each entry in the keyword file
+    function processEntry(entry, searchTerm) {
         const [link, keywords] = entry.split('|');
-        if (keywords.toLowerCase().includes(msg.toLowerCase())) {
-            return `<a href="${link}" target="_blank">${link}</a><br />`;
-        }
-        return null;
-    })
+        return matchSearchTerm(keywords, searchTerm) ? generateResultLink(link) : null;
+    }
+    // process entries and filter out null/empty values
+    const results = keywordFile
+        .map(entry => processEntry(entry, msg))
         .filter(Boolean); // Remove null entries
     // Respond with search results
     resp.writeHead(200, { "Content-Type": "text/html" });

@@ -3,7 +3,8 @@ import {Request, Response} from "express"
 import { readFileSync } from "fs";
 export const keywordHandler = (req: Request, resp: Response) => {
     console.log("Attempting Search");
-    const msg = req.query.Key1 as String;
+    
+    const msg = req.query.Key1 as string;
 
     
     const keywordFile = readFileSync("static/keywordfile3", "utf-8").trim().split("\n");
@@ -27,7 +28,7 @@ export const keywordHandler = (req: Request, resp: Response) => {
     
     // process entries and filter out null/empty values
     const results = keywordFile
-        .map(entry => processEntry(entry, searchTerm))
+        .map(entry => processEntry(entry, msg))
         .filter(Boolean); // Remove null entries
 
 
