@@ -3,7 +3,7 @@ import express, { Express } from "express";
 import { basicHandler } from "./handler";
 import { javascriptHandler } from "./javascriptHandler";
 
-const port = 5000;
+const port = 3001;
 const expressApp: Express = express();
 
 expressApp.get("/favicon.ico", (req, resp) => {
