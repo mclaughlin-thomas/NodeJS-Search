@@ -2,9 +2,10 @@
 import {Request, Response} from "express"
 import { readFileSync } from "fs";
 export const keywordHandler = (req: Request, resp: Response) => {
-    console.log("Serving keyword");
-    const msg = req.params.message ?? "(No Message)";
-    resp.send(`Hello, ${msg}`);
+    console.log("Attempting Search");
+    const msg = req.query.Key1 as String || "";
+
+    
     // resp.write(readFileSync("static/keywordfile3"));
     // resp.end();
 };

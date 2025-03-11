@@ -12,7 +12,7 @@ expressApp.get("/favicon.ico", (req, resp) => {
     resp.end();
 });
 expressApp.get("/search.js", javascriptHandler);
-expressApp.post("/keyword/:message?", keywordHandler);
+expressApp.get("/keyword", keywordHandler);
 
 expressApp.get("*", basicHandler);
 
