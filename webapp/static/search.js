@@ -1972,9 +1972,7 @@ var hints = ["-=",
     
     
     function suggest(str, InputboxIdNum){
-      
-      console.log("suggest is working");
-
+   
       var currentHint, temp, count;
       var domSuggestions = document.getElementById("suggestions");
 
@@ -2040,7 +2038,6 @@ var hints = ["-=",
     
     
    function validate(thisform){
-      console.log("validating!");
       cleanup();
 
       if ((thisform.Key1.value == "")){
