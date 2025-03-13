@@ -13,7 +13,8 @@ const keywordHandler = (req, resp) => {
     }
     // generate the result link
     function generateResultLink(link) {
-        return `<a href="${link}" target="_blank">${link}</a><br />`;
+        const updatedLink = `https://cis.stvincent.edu${link}`;
+        return `<a href="${updatedLink}" target="_blank">${updatedLink}</a><br />`;
     }
     // process each entry in the keyword file
     function processEntry(entry, searchTerm) {

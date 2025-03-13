@@ -17,7 +17,8 @@ export const keywordHandler = (req: Request, resp: Response) => {
     
     // generate the result link
     function generateResultLink(link: string): string {
-        return `<a href="${link}" target="_blank">${link}</a><br />`;
+        const updatedLink = `https://cis.stvincent.edu${link}`;
+        return `<a href="${updatedLink}" target="_blank">${updatedLink}</a><br />`;
     }
     
     // process each entry in the keyword file
