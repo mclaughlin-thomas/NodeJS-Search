@@ -24,7 +24,7 @@ const keywordHandler = (req, resp) => {
             return generateResultLink(link);
         }
         else {
-            return null;
+            return null; // makes entire element null
         }
         //return matchSearchTerm(keywords, searchTerm) ? generateResultLink(link) : null;
     }
