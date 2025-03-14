@@ -1,6 +1,6 @@
 // Thomas McLaughlin
 // Nicholas Smith
-// Handler for html's needed javascript
+// Handler for html's needed suggestions javascript
 
 import { IncomingMessage, ServerResponse } from "http";
 import { readFileSync } from "fs";

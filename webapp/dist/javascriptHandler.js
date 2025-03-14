@@ -1,7 +1,7 @@
 "use strict";
 // Thomas McLaughlin
 // Nicholas Smith
-// Handler for html's needed javascript
+// Handler for html's needed suggestions javascript
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.javascriptHandler = void 0;
 const fs_1 = require("fs");
