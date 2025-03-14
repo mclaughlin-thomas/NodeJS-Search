@@ -18,13 +18,13 @@ export const keywordHandler = (req: Request, resp: Response) => {
         return keywords.toLowerCase().includes(searchTerm.toLowerCase());
     }
     
-    // generate the result link
+    // Generate the result link
     function generateResultLink(link: string): string {
         const updatedLink = `https://cis.stvincent.edu${link}`; // Prepending missing portion of URL!
         return `<a href="${updatedLink}" target="_blank">${updatedLink}</a><br />`;
     }
     
-    // process each entry in the keyword file
+    // Process each entry in the keyword file
     function processEntry(entry: string, searchTerm: string): string | null {
         const [link, keywords] = entry.split('|');
         
