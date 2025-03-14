@@ -7,22 +7,22 @@ exports.keywordHandler = void 0;
 const fs_1 = require("fs");
 const keywordHandler = (req, resp) => {
     console.log("Attempting Search!");
-    const msg = req.query.Key1;
-    const keywordFile = (0, fs_1.readFileSync)("static/keywordfile3", "utf-8").trim().split("\n"); // this is array!
+    const msg = req.query.Key1; // Getting user's query
+    const keywordFile = (0, fs_1.readFileSync)("static/keywordfile3", "utf-8").trim().split("\n"); // this is an array!
     // Search logic
     // Check if the keywords contain the search term
     function matchSearchTerm(keywords, searchTerm) {
         return keywords.toLowerCase().includes(searchTerm.toLowerCase());
     }
-    // generate the result link
+    // Generate the result link
     function generateResultLink(link) {
         const updatedLink = `https://cis.stvincent.edu${link}`; // Prepending missing portion of URL!
         return `<a href="${updatedLink}" target="_blank">${updatedLink}</a><br />`;
     }
-    // process each entry in the keyword file
+    // Process each entry in the keyword file
     function processEntry(entry, searchTerm) {
         const [link, keywords] = entry.split('|');
-        const isMatch = matchSearchTerm(keywords, searchTerm); // Check if the search term matches the keywords
+        const isMatch = matchSearchTerm(keywords, searchTerm); // Check if the search term matches any of the keywords
         // If there is a match, we generate the result link. Otherwise, we return null
         if (isMatch) {
             return generateResultLink(link);

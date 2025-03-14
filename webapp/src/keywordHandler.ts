@@ -6,11 +6,11 @@ import {Request, Response} from "express"
 import { readFileSync } from "fs";
 
 export const keywordHandler = (req: Request, resp: Response) => {
-    
     console.log("Attempting Search!");
-    const msg = req.query.Key1 as string;
 
-    const keywordFile = readFileSync("static/keywordfile3", "utf-8").trim().split("\n"); // this is array!
+    const msg = req.query.Key1 as string; // Getting user's query
+
+    const keywordFile = readFileSync("static/keywordfile3", "utf-8").trim().split("\n"); // this is an array!
 
     // Search logic
     // Check if the keywords contain the search term
@@ -28,7 +28,7 @@ export const keywordHandler = (req: Request, resp: Response) => {
     function processEntry(entry: string, searchTerm: string): string | null {
         const [link, keywords] = entry.split('|');
         
-        const isMatch = matchSearchTerm(keywords, searchTerm); // Check if the search term matches the keywords
+        const isMatch = matchSearchTerm(keywords, searchTerm); // Check if the search term matches any of the keywords
         
         // If there is a match, we generate the result link. Otherwise, we return null
         if (isMatch) {
@@ -36,7 +36,6 @@ export const keywordHandler = (req: Request, resp: Response) => {
         } else {
             return null; // makes entire element null
         }
-
     }
     
     // Process entries and filter out null/empty values
