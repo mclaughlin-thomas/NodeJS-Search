@@ -1,4 +1,7 @@
-// import { IncomingMessage, ServerResponse } from "http";
+// Thomas McLaughlin
+// Nicholas Smith
+// Logic to search through keyword file and suggest appropriate URL.
+
 import {Request, Response} from "express"
 import { readFileSync } from "fs";
 export const keywordHandler = (req: Request, resp: Response) => {
@@ -17,7 +20,7 @@ export const keywordHandler = (req: Request, resp: Response) => {
     
     // generate the result link
     function generateResultLink(link: string): string {
-        const updatedLink = `https://cis.stvincent.edu${link}`;
+        const updatedLink = `https://cis.stvincent.edu${link}`; // prepending missing portion of URL!
         return `<a href="${updatedLink}" target="_blank">${updatedLink}</a><br />`;
     }
     
@@ -33,7 +36,7 @@ export const keywordHandler = (req: Request, resp: Response) => {
         } else {
             return null; // makes entire element null
         }
-        //return matchSearchTerm(keywords, searchTerm) ? generateResultLink(link) : null;
+
     }
     
     // process entries and filter out null/empty values

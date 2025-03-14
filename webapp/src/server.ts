@@ -1,3 +1,7 @@
+// Thomas McLaughlin
+// Nicholas Smith
+// Server Logic and Routing.
+
 import { createServer } from "http";
 import express, { Express } from "express";
 import { basicHandler } from "./handler";

@@ -1,4 +1,7 @@
 "use strict";
+// Thomas McLaughlin
+// Nicholas Smith
+// Logic to search through keyword file and suggest appropriate URL.
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.keywordHandler = void 0;
 const fs_1 = require("fs");
@@ -13,7 +16,7 @@ const keywordHandler = (req, resp) => {
     }
     // generate the result link
     function generateResultLink(link) {
-        const updatedLink = `https://cis.stvincent.edu${link}`;
+        const updatedLink = `https://cis.stvincent.edu${link}`; // prepending missing portion of URL!
         return `<a href="${updatedLink}" target="_blank">${updatedLink}</a><br />`;
     }
     // process each entry in the keyword file
@@ -27,7 +30,6 @@ const keywordHandler = (req, resp) => {
         else {
             return null; // makes entire element null
         }
-        //return matchSearchTerm(keywords, searchTerm) ? generateResultLink(link) : null;
     }
     // process entries and filter out null/empty values
     const results = keywordFile

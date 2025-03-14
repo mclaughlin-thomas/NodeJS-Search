@@ -1,5 +1,6 @@
-// search.js
-// JavaScript for the search engine.
+// Thomas McLaughlin
+// Nicholas Smith
+// JavaScript for the search engine suggestions.
 
 var hints = ["-=",
     "+=",
